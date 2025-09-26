@@ -1,0 +1,18 @@
+QWidget{
+    background-color: rgb(183, 79, 14);
+}
+QLabel{
+   font-size: larger;
+   color: white;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-weight: bold;
+}
+
+QPushButton{
+    font-size: 20px;
+    color:rgb(183, 79, 14) ;
+    background-color: white;
+    border-radius: 10px;
+}
+
+
