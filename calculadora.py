@@ -1,0 +1,139 @@
+import sys
+from PyQt6.QtWidgets import QApplication, QWidget, QPushButton, QLineEdit, QLabel
+
+app = QApplication(sys.argv)
+janela = QWidget()
+janela.resize(400,600)
+janela.setWindowTitle('Calculadora')
+
+with open("exercicios04/calculadora.css""r") as file:
+ app.setStyleSheet(file.read())
+    
+    
+    
+def exibir_no_display(x):
+    # print('teste')
+    valor_do_display = Display.text()
+    concatenar = valor_do_display + x
+    Display.setText(concatenar)
+        
+def calcular():
+    resultado = eval(Display.text())
+    #print(resultado)
+    Display.setText(str(resultado))
+    
+def LimpaTela():
+    Display.setText('')
+    
+Display = QLineEdit('',janela)
+
+#primeira parte
+ApagarTudo = QPushButton('AC',janela)
+ApagarTudo.setStyleSheet("color: orange;")
+ApagarTudo.clicked.connect(LimpaTela)
+
+
+btnNumeros = QPushButton('<-',janela)
+btnNumeros.move(80,0)
+btnNumeros.setStyleSheet("color: orange;")
+
+Porcentagem = QPushButton('%',janela)
+Porcentagem.move(160,0)
+Porcentagem.setStyleSheet("color: orange;")
+Porcentagem.clicked.connect(lambda: exibir_no_display('%'))
+
+
+btnBarra = QPushButton('/',janela)
+btnBarra.move(240,0)
+btnBarra.setStyleSheet("color: orange;")
+btnBarra.clicked.connect(lambda: exibir_no_display('/'))
+
+#segunda parte
+Numero7 = QPushButton('7',janela)
+Numero7.move(0,80)
+Numero7.clicked.connect(lambda: exibir_no_display('7'))
+
+
+Numero8 = QPushButton('8',janela)
+Numero8.move(80,80)
+Numero8.clicked.connect(lambda: exibir_no_display('8'))
+
+Numero9 = QPushButton('9',janela)
+Numero9.move(160,80)
+Numero9.clicked.connect(lambda: exibir_no_display('9'))
+
+
+Multiplicação = QPushButton('X',janela)
+Multiplicação.move(240,80)
+Multiplicação.setStyleSheet("color: orange;")
+Multiplicação.clicked.connect(lambda: exibir_no_display('X'))
+
+#terceira parte
+Numero4 = QPushButton('4',janela)
+Numero4.move(0,160)
+Numero4.clicked.connect(lambda: exibir_no_display('4'))
+
+
+Numero5 = QPushButton('5',janela)
+Numero5.move(80,160)
+Numero5.clicked.connect(lambda: exibir_no_display('5'))
+
+
+Numero6 = QPushButton('6',janela)
+Numero6.move(160,160)
+Numero6.clicked.connect(lambda: exibir_no_display('6'))
+
+
+btnTraço = QPushButton('-',janela)
+btnTraço.move(240,160)
+btnTraço.setStyleSheet("color: orange;")
+btnTraço.clicked.connect(lambda: exibir_no_display('-'))
+
+#quarta parte
+Numero1 = QPushButton('1',janela)
+Numero1.move(0,240)
+Numero1.clicked.connect(lambda: exibir_no_display('1'))
+
+Numero2 = QPushButton('2',janela)
+Numero2.move(80,240)
+Numero2.clicked.connect(lambda: exibir_no_display('2'))
+
+Numero3 = QPushButton('3',janela)
+Numero3.move(160,240)
+Numero3.clicked.connect(lambda: exibir_no_display('3'))
+
+Soma = QPushButton('+',janela)
+Soma.move(240,240)
+Soma.setStyleSheet("color: orange;")
+Soma.clicked.connect(lambda: exibir_no_display('+'))
+
+#ultima parte
+btnE = QPushButton('e',janela)
+btnE.move(0,315)
+
+
+Numero0 = QPushButton('0',janela)
+Numero0.move(80,315)
+Numero0.clicked.connect(lambda: exibir_no_display('0'))
+
+
+Virgula = QPushButton(',',janela)
+Virgula.move(160,315)
+Virgula.clicked.connect(lambda: exibir_no_display(','))
+
+
+btnIgual = QPushButton('=',janela)
+btnIgual.move(240,315)
+btnIgual.setStyleSheet("color: white; background-color: orange")
+btnIgual.clicked.connect(calcular)
+
+
+
+
+
+
+
+janela.show()
+app.exec()
+
+
